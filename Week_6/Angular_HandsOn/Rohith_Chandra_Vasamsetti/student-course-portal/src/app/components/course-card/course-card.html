@@ -1,11 +1,51 @@
 <div class="course-card">
 
-  <h2>{{ courseName }}</h2>
+  <h2>{{ courseName | uppercase }}</h2>
 
   <p><strong>Instructor:</strong> {{ instructor }}</p>
 
   <p><strong>Duration:</strong> {{ duration }}</p>
 
-  <button (click)="enrollCourse()">Enroll</button>
+  <p><strong>Fee:</strong> {{ fee | currency:'INR' }}</p>
+
+  <p><strong>Start Date:</strong> {{ startDate | date:'longDate' }}</p>
+
+  <p><strong>Category:</strong> {{ category | titlecase }}</p>
+
+<div [ngSwitch]="category">
+
+  <p *ngSwitchCase="'Frontend'" style="color: blue;">
+    🌐 Frontend Course
+  </p>
+
+  <p *ngSwitchCase="'Backend'" style="color: green;">
+    ⚙️ Backend Course
+  </p>
+
+  <p *ngSwitchCase="'AI'" style="color: purple;">
+    🤖 Artificial Intelligence Course
+  </p>
+
+  <p *ngSwitchDefault>
+    📚 General Course
+  </p>
+
+</div>
+
+  <p *ngIf="available" style="color:green;">
+    Seats Available
+  </p>
+
+  <p *ngIf="!available" style="color:red;">
+    Batch Full
+  </p>
+
+  <button
+    (click)="enrollCourse()"
+    [disabled]="!available">
+
+    Enroll
+
+  </button>
 
 </div>
