@@ -1,0 +1,22 @@
+<h2>Student Information</h2>
+
+<label>Student Name:</label>
+
+<input
+  type="text"
+  [(ngModel)]="studentName"
+  placeholder="Enter your name">
+
+<p>
+  Welcome,
+  <strong>{{ studentName }}</strong>
+</p>
+
+<hr>
+
+<app-course-card
+  [courseName]="course.name"
+  [instructor]="course.instructor"
+  [duration]="course.duration"
+  (enroll)="onEnroll()">
+</app-course-card>
