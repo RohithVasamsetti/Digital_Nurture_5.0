@@ -1,0 +1,4 @@
+1. Completed Spring Core and Maven
+2. Completed Spring Data JPA with Spring Boot, Hibernate
+3. Completed Spring REST using Spring Boot 3
+4. Completed JWT-handson
